@@ -47,7 +47,7 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(Product $product)
-    { //return $product;
+    { 
         return new ProductResource($product);
     }
 

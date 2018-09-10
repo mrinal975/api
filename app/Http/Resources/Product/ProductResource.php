@@ -20,6 +20,12 @@ class ProductResource extends JsonResource
             'price'=>$this->price,
             'stock'=>$this->stock,
             'discount'=>$this->discount,
+            'rating'=>$this->reviews->count()>0?
+                round($this->reviews->sum('star')/$this->reviews->count(),2)
+                :'No Rating Yet',
+            'href'=>[
+                'Reviews'=>route('reviews.index',$this->id)
+            ]
         ];
     }
 }
